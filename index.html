@@ -7,18 +7,61 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    
+  <div id="wrapper">
+    <header>
       <h1 class="dice-generator">Dice Generator</h1>
+    </header>
 
-      <p>Click your choice of number of faces</p>
-      <button onclick="userChoice(6)" class="6">6</button>
-      <button onclick="userChoice(8)" class="8">8</button>
-      <button onclick="userChoice(10)" class="10">10</button>
-      <button onclick="userChoice(12)" class="12">12</button>
-      <button onclick="userChoice(14)" class="14">14</button>
-      <button onclick="userChoice(16)" class="16">16</button>
+    <div id="content">
+    <section class="left-section-container">
+      <nav>
+        <ul>
+          <li>Choose your dice</li>
+        </ul>
+        <button onclick="userChoice(6)" class="6">6</button>
+        <button onclick="userChoice(10)" class="10">10</button>
+        <button onclick="userChoice(14)" class="14">14</button>
+      </nav>
+ 
+
+     <aside>
+      <details>
+        <summary>Dice Info</summary>
+        <p id="sides">Sides: </p>
+        <p id="color">Color: </p>
+        <p id="size">Size: </p>
+      </details>
+      <button class="roll-dice-btn">Roll your dice</button>
+      <br>
       <h1 id="diceFaceNum"></h1>
-    
+      <aside class="dices-aside-container">
+        <div class="six">
+      <img src="./images/red6.jpg" alt="red6-dice">
+      <p>Dice Characteristics</p>
+        </div>
+        <div class="ten">
+          <img src="./images/yellow10.jpg" alt="yellow10-dice">
+          <p>Dice Characteristics</p>
+        </div>
+        <div class="fourteen">
+          <img src="./images/blue14.jpg" alt="blue14-dice">
+          <p>Dice Characteristics</p>
+          <p>Dice Characteristics</p>
+          <p>Dice Characteristics</p>
+          <p>Dice Characteristics</p>
+          <p>Dice Characteristics</p>
+          <p>Dice Characteristics</p>
+          <p>Dice Characteristics</p>
+          <p>Dice Characteristics</p>
+        </div>
+      </aside>
+
+     </aside>
+    </section>
+  </div>
+  <footer>Created by Ai</footer>
+    </div> 
+   
 </body>
     <script src="index.js" charset="UTF-8"></script>
   </body>

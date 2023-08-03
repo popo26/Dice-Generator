@@ -1,30 +1,95 @@
 
 
 *{
-    text-align: center;
     margin:0;
+    padding:0;
 }
 
+
+
 body {
-    background: url("https://media.giphy.com/media/f73urdknsWliIEZiDw/giphy.gif");
+    /* background: url("https://media.giphy.com/media/f73urdknsWliIEZiDw/giphy.gif");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;  */
+    font-family: monospace;
+    text-align: center;
+    height:100%;
+   
+}
+
+#wrapper {
+    min-height: 100%;
+    position: relative;
+  }
+
+
+
+header{
+    padding:3px;
+    height:10%;
+    background:grey;
+    color:white;
+}
+
+#content {
+    padding-bottom: 100px;
+    /* Height of the footer element */
+  }
+
+.left-section-container{
+    display: -webkit-flex;
+    display: flex;
+   
     
 }
 
-body {
-    font-family: monospace;
+
+nav{
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    background: #ccc;
+    padding: 20px;
+   
 }
 
-p {
-    color: yellow;
-    font-size:1rem;
+nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  nav button{
+    display:block;
+    margin:auto;
+    margin-top:30px;
+
+  }
+
+aside{
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    background-color: #f1f1f1;
+    padding: 10px;
 }
 
 .dice-generator {
-    padding-top:10rem;
+    /* padding-top:10rem; */
     font-size: 6rem;
-    color: #4E4FEB;
+    
+}
+
+.roll-dice-btn {
+    background-color: green;
+    color:#EEEEEE;
+    font-family:cursive;
+    font-size: 20px;
+    /* font-weight: bolder; */
+    border-style: none;
+    padding: 10px;
+    border-radius: 5px;
+    width:fit-content;
+    /* margin:20px;  */
 }
 
 
@@ -46,5 +111,35 @@ button {
     color:#068FFF;
     font-size: 3rem;
     bottom:0;
+}
+
+.dices-aside-container{
+    display: -webkit-flex;
+    display: flex;
+    gap:10px;
+}
+
+.dices-aside-container div{
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    background: #ccc;
+    padding: 20px;
+}
+
+.dices-aside-container img{
+    width:  100px;
+    height: 100px;
+    object-fit: cover;
+    
+}
+
+footer{
+    background: #ffab62;
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
