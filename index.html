@@ -16,7 +16,7 @@
     <section class="left-section-container">
       <nav>
         <ul>
-          <li>Choose your dice</li>
+          <li>Click to see dice info</li>
         </ul>
         <button onclick="userChoice(6)" class="6">6</button>
         <button onclick="userChoice(10)" class="10">10</button>
@@ -31,33 +31,57 @@
         <p id="color">Color: </p>
         <p id="size">Size: </p>
       </details>
-      <button class="roll-dice-btn">Roll your dice</button>
+      <button class="roll-dice-btn" onclick="rollDice()">Roll your dice</button>
+      <h1 class="selectedDice">No dice selected</h1>
       <br>
       <h1 id="diceFaceNum"></h1>
       <aside class="dices-aside-container">
-        <div class="six">
+        <div class="red" onmouseover="turnOnColor('red')" onmouseout="turnOffColor('red')">
       <img src="./images/red6.jpg" alt="red6-dice">
-      <p>Dice Characteristics</p>
+      <p>Sides: 6</p>
+      <p>Usage: Combat</p>
+      <p>Color: Red</p>
+      <p>Size: Small</p>
+      <button class="select-btn" onclick="selectDice(6)">Select</button>
+     
         </div>
-        <div class="ten">
+        <div class="yellow" onmouseover="turnOnColor('yellow')" onmouseout="turnOffColor('yellow')">
           <img src="./images/yellow10.jpg" alt="yellow10-dice">
-          <p>Dice Characteristics</p>
+          <p>Sides: 10</p>
+          <p>Usage: Decision Making</p>
+          <p>Color: Yellow</p>
+          <p>Size: Medium</p>
+          <button class="select-btn" onclick="selectDice(10)">Select</button>
         </div>
-        <div class="fourteen">
+        <div class="blue" onmouseover="turnOnColor('blue')" onmouseout="turnOffColor('blue')">
           <img src="./images/blue14.jpg" alt="blue14-dice">
-          <p>Dice Characteristics</p>
-          <p>Dice Characteristics</p>
-          <p>Dice Characteristics</p>
-          <p>Dice Characteristics</p>
-          <p>Dice Characteristics</p>
-          <p>Dice Characteristics</p>
-          <p>Dice Characteristics</p>
-          <p>Dice Characteristics</p>
+          <p>Sides: 14</p>
+          <p>Usage: Exploration</p>
+          <p>Color: Blue</p>
+          <p>Size: Large</p>
+          <button class="select-btn" onclick="selectDice(14)">Select</button>
         </div>
-      </aside>
 
+        <div class="user-creation">
+          <button class="user-creation-btn" onclick="toggleUserCreationForm()">Create User</button>
+          <div class="user-creation-form">
+          <form action="#">
+            <input type="text" name="fullName" id="fullName" placeholder="Full Name" />
+            <input type="email" name="email" id="email" placeholder="Email" />
+            <input type="tel" name="phone" id="phone" placeholder="Phone" />
+            <input type="text" name="address" id="address" placeholder="Address" />
+            <input type="number" name="height" id="height" placeholder="Height" />
+            <input type="file" name="pitcure" id="pitcure" accept=".gif,.jpg,.png|image/*" />
+          <input type="reset" value="Cancel" onclick="toggleUserCreationForm()"/>
+          </form>
+        </div>
+         </div>
+
+      </aside>
      </aside>
+   
     </section>
+  
   </div>
   <footer>Created by Ai</footer>
     </div> 

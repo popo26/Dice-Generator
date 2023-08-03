@@ -12,7 +12,7 @@ const json10 = '{"sides": 10, "color": "yellow", "size": "Medium"}';
 
 const json14 = '{"sides": 14, "color": "blue", "size": "large"}';
 
-console.log(JSON.parse(json6).sides);
+// console.log(JSON.parse(json6).sides);
 
 // const myJSON = '{"name":"John", "age":30, "car":null}';
 // const myObj = JSON.parse(myJSON);
@@ -20,6 +20,7 @@ console.log(JSON.parse(json6).sides);
 // console.log(x);
 
 let pickNumber = 0;
+let selectedNumber = 0;
 let diceChosen = {};
 // console.log(diceChosen);
 
@@ -51,10 +52,10 @@ function showDiceInfo(){
     document.getElementById("size").innerHTML = "Size is " + diceChosen.size;
 }
 
-function updateFaceDiceNum(){
-    pickNumber = Math.floor(Math.random() * pickNumber) + 1;
-    document.getElementById("diceFaceNum").innerHTML = "Your dice is " + pickNumber;
-}
+// function updateFaceDiceNum(){
+//     pickNumber = Math.floor(Math.random() * pickNumber) + 1;
+//     document.getElementById("diceFaceNum").innerHTML = "Your dice is " + pickNumber;
+// }
 
 // function userChoice(number){
 //  pickNumber = number;
@@ -66,6 +67,45 @@ function userChoice(number){
     console.log("you picked " + pickNumber);
     showDiceInfo();
    }
+
+function turnOnColor(color){
+document.querySelector(`.${color}`).style.backgroundColor = `${color}`; 
+}
+
+function turnOffColor(color){
+    document.querySelector(`.${color}`).style.backgroundColor = "grey";
+}
+
+function selectDice(num){
+    pickNumber = num;
+    selectedNumber = num;
+    showDiceInfo();
+document.querySelector(".selectedDice").innerHTML = `You selected Dice ${num}`;
+}
+
+function rollDice(){
+    if (selectedNumber === 0){
+        document.getElementById("diceFaceNum").innerHTML = "Select dice from below"; 
+        document.querySelector(".selectedDice").innerHTML = "No dice selected";
+        // console.log(selectedNumber);
+        // console.log(pickNumber);
+    }else{
+        selectedNumber = Math.floor(Math.random() * selectedNumber) + 1;
+        document.getElementById("diceFaceNum").innerHTML = "You got " + selectedNumber;
+        document.querySelector(".selectedDice").innerHTML = "Good roll! Select again.";
+        selectedNumber = 0;
+    }
+}
+
+function toggleUserCreationForm(){
+    let form = document.querySelector(".user-creation-form");
+    if (form.style.display == "none" || form.style.display == "") {
+      form.style.display = "block";
+    } else {
+      form.style.display = "none";
+    }
+}
+
 
 
 
