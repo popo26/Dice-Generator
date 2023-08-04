@@ -198,6 +198,19 @@ button {
     box-sizing: border-box;
 }
 
+input[type="submit"]{
+    background-color: green;
+    color:#EEEEEE;
+    font-family:cursive;
+    font-size: 20px;
+    border-style: none;
+    padding: 10px;
+    border-radius: 5px;
+    width:fit-content;
+    cursor:pointer;
+}
+
+
 input[type="reset"]{
     background-color: red;
     color:#EEEEEE;
@@ -221,3 +234,21 @@ footer{
     left: 0;
 }
 
+.table-with-average{
+    display:none;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+  }
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+  }

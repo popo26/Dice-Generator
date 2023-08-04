@@ -32,9 +32,31 @@
         <p id="size">Size: </p>
       </details>
       <button class="roll-dice-btn" onclick="rollDice()">Roll your dice</button>
+      <h2 class="total-game-count">Total Game Count: 0</h2>
       <h1 class="selectedDice">No dice selected</h1>
-      <br>
       <h1 id="diceFaceNum"></h1>
+      <aside class="table-with-average">
+        <div class="grid-container">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>  
+          <div class="grid-item">4</div>
+          <div class="grid-item">5</div>
+          <div class="grid-item">6</div> 
+          <div class="grid-item grid1"></div>
+          <div class="grid-item grid2"></div>
+          <div class="grid-item grid3"></div>  
+          <div class="grid-item grid4"></div>
+          <div class="grid-item grid5"></div>
+          <div class="grid-item grid6"></div> 
+          <div class="grid-item ave1"></div>
+          <div class="grid-item ave2"></div>
+          <div class="grid-item ave3"></div>  
+          <div class="grid-item ave4"></div>
+          <div class="grid-item ave5"></div>
+          <div class="grid-item ave6"></div>   
+        </div>
+      </aside>
       <aside class="dices-aside-container">
         <div class="red" onmouseover="turnOnColor('red')" onmouseout="turnOffColor('red')">
       <img src="./images/red6.jpg" alt="red6-dice">
@@ -72,6 +94,7 @@
             <input type="text" name="address" id="address" placeholder="Address" />
             <input type="number" name="height" id="height" placeholder="Height" />
             <input type="file" name="pitcure" id="pitcure" accept=".gif,.jpg,.png|image/*" />
+            <input type="submit" value="Submit">
           <input type="reset" value="Cancel" onclick="toggleUserCreationForm()"/>
           </form>
         </div>

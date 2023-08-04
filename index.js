@@ -12,28 +12,21 @@ const json10 = '{"sides": 10, "color": "yellow", "size": "Medium"}';
 
 const json14 = '{"sides": 14, "color": "blue", "size": "large"}';
 
-// console.log(JSON.parse(json6).sides);
-
-// const myJSON = '{"name":"John", "age":30, "car":null}';
-// const myObj = JSON.parse(myJSON);
-// x = myObj.name;
-// console.log(x);
 
 let pickNumber = 0;
 let selectedNumber = 0;
+let diceResult = 0;
 let diceChosen = {};
-// console.log(diceChosen);
+let d6Count = 0;
+let totalGameCount = 0;
+let d6Average = 0;
+let d6Sum = 0;
 
 function showDiceInfo(){
-   
-    // pickNumber = Math.floor(Math.random() * pickNumber) + 1;
     switch (pickNumber){
         case 6:
             const d6 = JSON.parse(json6);
             diceChosen = d6;
-            // console.log(diceChosen);
-            // console.log(d6);
-            // console.log(diceChosen.sides)
             break;
         case 10:
             const d10 = JSON.parse(json10);
@@ -46,21 +39,10 @@ function showDiceInfo(){
         default:
             break;
     }
-    // console.log(diceChosen.sides)
     document.getElementById("sides").innerHTML = "Num of sides is " + diceChosen.sides;
     document.getElementById("color").innerHTML = "Color is " + diceChosen.color;
     document.getElementById("size").innerHTML = "Size is " + diceChosen.size;
 }
-
-// function updateFaceDiceNum(){
-//     pickNumber = Math.floor(Math.random() * pickNumber) + 1;
-//     document.getElementById("diceFaceNum").innerHTML = "Your dice is " + pickNumber;
-// }
-
-// function userChoice(number){
-//  pickNumber = number;
-//  updateFaceDiceNum();
-// }
 
 function userChoice(number){
     pickNumber = number;
@@ -87,12 +69,32 @@ function rollDice(){
     if (selectedNumber === 0){
         document.getElementById("diceFaceNum").innerHTML = "Select dice from below"; 
         document.querySelector(".selectedDice").innerHTML = "No dice selected";
-        // console.log(selectedNumber);
-        // console.log(pickNumber);
     }else{
-        selectedNumber = Math.floor(Math.random() * selectedNumber) + 1;
-        document.getElementById("diceFaceNum").innerHTML = "You got " + selectedNumber;
-        document.querySelector(".selectedDice").innerHTML = "Good roll! Select again.";
+        if (selectedNumber === 6){
+            diceResult = Math.floor(Math.random() * selectedNumber) + 1;
+            document.getElementById("diceFaceNum").innerHTML = "You got " + diceResult;
+            document.querySelector(".selectedDice").innerHTML = "Good roll! Select again";
+            d6Count++;
+            if (d6Count <= 6){
+                showD6Table();
+                document.querySelector(`.grid${d6Count}`).innerHTML = diceResult;
+                d6Sum = d6Sum + diceResult;
+                d6Average = (d6Sum / d6Count).toFixed(1);
+                document.querySelector(`.ave${d6Count}`).innerHTML = d6Average;
+                totalGameCount++;
+                updateTotalGameCount();
+            } else{
+                hideD6Table();
+                totalGameCount++;
+                updateTotalGameCount();
+            }
+        } else{
+            diceResult = Math.floor(Math.random() * selectedNumber) + 1;
+            document.getElementById("diceFaceNum").innerHTML = "You got " + selectedNumber;
+            document.querySelector(".selectedDice").innerHTML = "Woohoo! Select again";
+            totalGameCount++;
+            updateTotalGameCount();
+        }
         selectedNumber = 0;
     }
 }
@@ -105,6 +107,27 @@ function toggleUserCreationForm(){
       form.style.display = "none";
     }
 }
+
+function showD6Table(){
+    let grid = document.querySelector(".table-with-average");
+    if (grid.style.display == "none" || grid.style.display == "") {
+        grid.style.display = "block";
+      } 
+}
+
+function hideD6Table(){
+    let grid = document.querySelector(".table-with-average");
+    if (grid.style.display == "block") {
+        grid.style.display = "none";
+      } 
+}
+
+function updateTotalGameCount(){
+    document.querySelector(".total-game-count").innerHTML = `Total Game Count: ${totalGameCount}`;
+}
+
+
+
 
 
 
