@@ -18,31 +18,34 @@
         <ul>
           <li>Click to see dice info</li>
         </ul>
-        <button onclick="userChoice(6)" class="6">6</button>
-        <button onclick="userChoice(10)" class="10">10</button>
-        <button onclick="userChoice(14)" class="14">14</button>
+        <button onclick="userChoice(6)" class="btn6">6</button>
+        <button onclick="userChoice(10)" class="btn10">10</button>
+        <button onclick="userChoice(14)" class="btn14">14</button>
       </nav>
  
 
      <aside>
       <details>
         <summary>Dice Info</summary>
-        <p id="sides">Sides: </p>
-        <p id="color">Color: </p>
-        <p id="size">Size: </p>
+        <br>
+        <p id="sides"></p>
+        <p id="color"></p>
+        <p id="size"></p>
       </details>
-      <button class="roll-dice-btn" onclick="rollDice()">Roll your dice</button>
+      <br>
       <h2 class="total-game-count">Total Game Count: 0</h2>
-      <h1 class="selectedDice">No dice selected</h1>
+
+      <button class="roll-dice-btn" title="Roll your dice!" onclick="rollDice()">🎲</button>
+      <h2 class="selectedDice">👇🏼 Select your dice 👇🏼</h2>
       <h1 id="diceFaceNum"></h1>
       <aside class="table-with-average">
         <div class="grid-container">
-          <div class="grid-item">1</div>
-          <div class="grid-item">2</div>
-          <div class="grid-item">3</div>  
-          <div class="grid-item">4</div>
-          <div class="grid-item">5</div>
-          <div class="grid-item">6</div> 
+          <div class="grid-item">1st</div>
+          <div class="grid-item">2nd</div>
+          <div class="grid-item">3rd</div>  
+          <div class="grid-item">4th</div>
+          <div class="grid-item">5th</div>
+          <div class="grid-item">6th</div> 
           <div class="grid-item grid1"></div>
           <div class="grid-item grid2"></div>
           <div class="grid-item grid3"></div>  
@@ -64,7 +67,7 @@
       <p>Usage: Combat</p>
       <p>Color: Red</p>
       <p>Size: Small</p>
-      <button class="select-btn" onclick="selectDice(6)">Select</button>
+      <button class="select-btn" onclick="selectDice(6), revertFontColorSelectedDiceCss()">SELECT</button>
      
         </div>
         <div class="yellow" onmouseover="turnOnColor('yellow')" onmouseout="turnOffColor('yellow')">
@@ -73,15 +76,15 @@
           <p>Usage: Decision Making</p>
           <p>Color: Yellow</p>
           <p>Size: Medium</p>
-          <button class="select-btn" onclick="selectDice(10)">Select</button>
+          <button class="select-btn" onclick="selectDice(10), revertFontColorSelectedDiceCss()">SELECT</button>
         </div>
-        <div class="blue" onmouseover="turnOnColor('blue')" onmouseout="turnOffColor('blue')">
+        <div class="blue" onmouseover="turnOnColorBlue('blue')" onmouseout="turnOffColor('blue')">
           <img src="./images/blue14.jpg" alt="blue14-dice">
           <p>Sides: 14</p>
           <p>Usage: Exploration</p>
           <p>Color: Blue</p>
           <p>Size: Large</p>
-          <button class="select-btn" onclick="selectDice(14)">Select</button>
+          <button class="select-btn" onclick="selectDice(14), revertFontColorSelectedDiceCss()">SELECT</button>
         </div>
 
         <div class="user-creation">

@@ -5,16 +5,14 @@
     padding:0;
 }
 
-
-
 body {
-    /* background: url("https://media.giphy.com/media/f73urdknsWliIEZiDw/giphy.gif");
+    background: url("https://media.giphy.com/media/f73urdknsWliIEZiDw/giphy.gif");
     background-repeat: no-repeat;
-    background-size: cover;  */
-    font-family: monospace;
+    background-size: cover; 
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
-    height:100%;
-   
+    height:100%;  
+    color:#003300;
 }
 
 #wrapper {
@@ -22,12 +20,9 @@ body {
     position: relative;
   }
 
-
-
 header{
     padding:3px;
     height:10%;
-    background:grey;
     color:white;
 }
 
@@ -38,62 +33,82 @@ header{
 
 .left-section-container{
     display: -webkit-flex;
-    display: flex;
-   
-    
+    display: flex;  
 }
 
+.left-section-container li{
+    font-weight: 800;
+}
 
-nav{
+nav {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    background: #ccc;
+    background: rgb(204, 255, 204, 0.5);
     padding: 20px;
-   
+    margin:20px;
+    border-radius: 10px;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
+    /* font-size: 1.6rem; */
   }
 
-  nav button{
+nav .btn6, nav .btn10, nav .btn14 {
     display:block;
     margin:auto;
-    margin-top:30px;
-
-  }
+    margin-top:40px;
+}
 
 aside{
     -webkit-flex: 3;
     -ms-flex: 3;
     flex: 3;
-    background-color: #f1f1f1;
+    background:rgb(204, 255, 204, 0.5);
     padding: 10px;
+    margin:20px;
+    border-radius: 10px;
+}
+
+details {
+    background-color:rgb(0,255,0,0.5);
+    color:rgb(153,51,255);
+    font-weight: bold;
+    font-size: 1rem;;
+    width:20%;
+    margin:auto;
+    padding:10px;
+    border-radius: 10px;;
 }
 
 .dice-generator {
-    /* padding-top:10rem; */
-    font-size: 6rem;
-    
+    font-size: 6rem; 
 }
 
 .roll-dice-btn {
     background-color: green;
     color:#EEEEEE;
     font-family:cursive;
-    font-size: 20px;
-    /* font-weight: bolder; */
+    font-size: 60px;
     border-style: none;
     padding: 10px;
-    border-radius: 5px;
-    width:fit-content;
-    /* margin:20px;  */
+    border-radius: 100%;
+    width:fit-content;  
+}
+
+.roll-dice-btn:hover{
+    background-color:#000000;
 }
 
 
 button {
+    margin:20px;  
+    cursor: pointer;
+}
+
+.btn6,.btn10,.btn14 {
     background-color: #000000;
     color:#EEEEEE;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -106,58 +121,76 @@ button {
     margin:20px;
 }
 
+.btn6:hover{
+    background-color: red;
+    color:#000000;
+}
+
+.btn10:hover{
+    background-color: yellow;
+    color:#000000;
+}
+
+.btn14:hover{
+    background-color: blue;
+    color:#EEEEEE;
+}
+
 #diceFaceNum {
-    padding: 6rem;
-    color:#068FFF;
+    padding: 2rem;
+    /* color:#000099; */
     font-size: 3rem;
     bottom:0;
+    
 }
 
 .dices-aside-container{
     display: -webkit-flex;
     display: flex;
     gap:10px;
-
     flex-wrap:wrap;
-    /* justify-content: space-between; */
+    
 }
 
 .dices-aside-container div:not(.user-creation){
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    background: #ccc;
     padding: 20px;  
+}
+
+.dices-aside-container div{
+    background-color: #003300;
+    color:white;
+    border-radius: 10px;;
 }
 
 .user-creation{
     background: #ccc;
     padding: 20px;
-    /* width:100%; */
-    flex-basis:100%;
-    
-    
+    flex-basis:100%; 
 }
 
 .dices-aside-container img{
     width:  100px;
     height: 100px;
-    object-fit: cover;
-    
+    object-fit: cover;  
+    border-radius: 10px; 
 }
 
-
-
 .select-btn {
-    background-color: #333;
-    color:#EEEEEE;
+    background-color: #EEEEEE;
     font-family:cursive;
     font-size: 20px;
     border-style: none;
     padding: 10px;
     border-radius: 5px;
-    width:fit-content;
-    cursor:pointer;
+    width:fit-content; 
+}
+
+.select-btn:hover{
+    background-color:#000000;
+    color:white;
 }
 
 .user-creation-btn{
@@ -168,8 +201,12 @@ button {
     border-style: none;
     padding: 10px;
     border-radius: 5px;
-    width:fit-content;
-    cursor:pointer;
+    width:fit-content;   
+}
+
+.user-creation-btn:hover, input[type="submit"]:hover{
+    background-color: #EEEEEE;
+    color:#003300;
 }
 
 .user-creation-cancel-btn{
@@ -181,7 +218,7 @@ button {
     padding: 10px;
     border-radius: 5px;
     width:fit-content;
-    cursor:pointer;
+    
 }
 
 .user-creation-form{
@@ -210,7 +247,6 @@ input[type="submit"]{
     cursor:pointer;
 }
 
-
 input[type="reset"]{
     background-color: red;
     color:#EEEEEE;
@@ -223,15 +259,19 @@ input[type="reset"]{
     cursor:pointer;
 }
 
-
+input[type="reset"]:hover{
+    background-color: #EEEEEE;
+    color:red;
+}
 
 footer{
-    background: #ffab62;
     width: 100%;
-    height: 100px;
+    height: 60px;
     position: absolute;
     bottom: 0;
     left: 0;
+    padding-top:40px;
+    color:#EEEEEE;
 }
 
 .table-with-average{
@@ -241,7 +281,7 @@ footer{
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
-    background-color: #2196F3;
+    background-color: #003300;
     padding: 10px;
   }
 
@@ -251,4 +291,76 @@ footer{
     padding: 10px;
     font-size: 30px;
     text-align: center;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .dice-generator {
+        font-size: 3rem; 
+    }
+
+    .left-section-container{
+        display: -webkit-flex;
+        display: flex;  
+        flex-direction: column;
+    }
+
+    nav .btn6, nav .btn10, nav .btn14 {
+        display:inline;
+        margin:auto;
+        margin-top:40px;
+    }
+
+    details {
+        background-color:rgb(0,255,0,0.5);
+        color:rgb(153,51,255);
+        font-weight: bold;
+        font-size: 1rem;;
+        width:40%;
+        margin:auto;
+        padding:10px;
+        border-radius: 10px;;
+    }
+
+    .dices-aside-container{
+        display: -webkit-flex;
+        display: flex;
+        gap:10px;
+        flex-wrap:wrap;
+        flex-direction: column;
+        
+    }
+    
+    .dices-aside-container div:not(.user-creation){
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        padding: 20px;  
+    }
+    
+    .dices-aside-container div{
+        background-color: #003300;
+        color:white;
+        border-radius: 10px;;
+    }
+
+    .dices-aside-container div:not(.user-creation){
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        padding: 20px; 
+    }
+    
+    /* .dices-aside-container div{
+        background-color: #003300;
+        color:white;
+        border-radius: 10px;;
+    } */
+
+    .dices-aside-container img{
+        width:  100px;
+        height: 100px;
+        object-fit: cover;  
+        border-radius: 10px; 
+        float:left;
+    }
   }

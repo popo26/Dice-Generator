@@ -6,11 +6,11 @@
 // The user should be able to use different dice, such as a D6 or a D10
 // (number of faces).
 
-const json6 = '{"sides": 6, "color": "red", "size": "small"}';
+const json6 = '{"sides": 6, "color": "Red", "size": "Small"}';
 
-const json10 = '{"sides": 10, "color": "yellow", "size": "Medium"}';
+const json10 = '{"sides": 10, "color": "Yellow", "size": "Medium"}';
 
-const json14 = '{"sides": 14, "color": "blue", "size": "large"}';
+const json14 = '{"sides": 14, "color": "Blue", "size": "Large"}';
 
 
 let pickNumber = 0;
@@ -39,9 +39,9 @@ function showDiceInfo(){
         default:
             break;
     }
-    document.getElementById("sides").innerHTML = "Num of sides is " + diceChosen.sides;
-    document.getElementById("color").innerHTML = "Color is " + diceChosen.color;
-    document.getElementById("size").innerHTML = "Size is " + diceChosen.size;
+    document.getElementById("sides").innerHTML = "Sides: " + diceChosen.sides;
+    document.getElementById("color").innerHTML = "Color: " + diceChosen.color;
+    document.getElementById("size").innerHTML = "Size: " + diceChosen.size;
 }
 
 function userChoice(number){
@@ -51,12 +51,23 @@ function userChoice(number){
    }
 
 function turnOnColor(color){
-document.querySelector(`.${color}`).style.backgroundColor = `${color}`; 
+document.querySelector(`.${color}`).style.backgroundColor = `${color}`
+document.querySelector(`.${color}`).style.color = "#003300";
+document.querySelector(`.${color}`).style.fontWeight = "bold";
 }
 
 function turnOffColor(color){
-    document.querySelector(`.${color}`).style.backgroundColor = "grey";
+    document.querySelector(`.${color}`).style.color = "#ffffff";
+    document.querySelector(`.${color}`).style.backgroundColor = "#003300";
+    document.querySelector(`.${color}`).style.fontWeight = "normal";
 }
+
+function turnOnColorBlue(color){
+    document.querySelector(`.${color}`).style.backgroundColor = `${color}`
+    document.querySelector(`.${color}`).style.color = "#EEEEEE";
+    document.querySelector(`.${color}`).style.fontWeight = "bold";
+    }
+    
 
 function selectDice(num){
     pickNumber = num;
@@ -67,13 +78,15 @@ document.querySelector(".selectedDice").innerHTML = `You selected Dice ${num}`;
 
 function rollDice(){
     if (selectedNumber === 0){
-        document.getElementById("diceFaceNum").innerHTML = "Select dice from below"; 
+        document.getElementById("diceFaceNum").innerHTML = "👇🏼 Select dice from below 👇🏼";
         document.querySelector(".selectedDice").innerHTML = "No dice selected";
+        document.querySelector(".selectedDice").style.color = "#990000";
+        
     }else{
         if (selectedNumber === 6){
             diceResult = Math.floor(Math.random() * selectedNumber) + 1;
             document.getElementById("diceFaceNum").innerHTML = "You got " + diceResult;
-            document.querySelector(".selectedDice").innerHTML = "Good roll! Select again";
+            document.querySelector(".selectedDice").innerHTML = "Good roll! Select again 👇🏼";
             d6Count++;
             if (d6Count <= 6){
                 showD6Table();
@@ -90,8 +103,8 @@ function rollDice(){
             }
         } else{
             diceResult = Math.floor(Math.random() * selectedNumber) + 1;
-            document.getElementById("diceFaceNum").innerHTML = "You got " + selectedNumber;
-            document.querySelector(".selectedDice").innerHTML = "Woohoo! Select again";
+            document.getElementById("diceFaceNum").innerHTML = "You got " + diceResult;
+            document.querySelector(".selectedDice").innerHTML = "Woohoo! Select again 👇🏼";
             totalGameCount++;
             updateTotalGameCount();
         }
@@ -125,6 +138,11 @@ function hideD6Table(){
 function updateTotalGameCount(){
     document.querySelector(".total-game-count").innerHTML = `Total Game Count: ${totalGameCount}`;
 }
+
+function revertFontColorSelectedDiceCss(){
+    document.querySelector(".selectedDice").style.color = "#003300";
+}
+
 
 
 
