@@ -27,14 +27,20 @@ function showDiceInfo(){
         case 6:
             const d6 = JSON.parse(json6);
             diceChosen = d6;
+            document.querySelector("details").style.backgroundColor = "red";
+            document.querySelector("details").style.color = "#EEEEEE";
             break;
         case 10:
             const d10 = JSON.parse(json10);
             diceChosen = d10;
+            document.querySelector("details").style.backgroundColor = "yellow";
+            document.querySelector("details").style.color = "#003300";
             break;
         case 14:
             const d14 = JSON.parse(json14);
             diceChosen = d14;
+            document.querySelector("details").style.backgroundColor = "blue";
+            document.querySelector("details").style.color = "#EEEEEE";
             break;
         default:
             break;
@@ -46,14 +52,13 @@ function showDiceInfo(){
 
 function userChoice(number){
     pickNumber = number;
-    console.log("you picked " + pickNumber);
     showDiceInfo();
    }
 
 function turnOnColor(color){
-document.querySelector(`.${color}`).style.backgroundColor = `${color}`
-document.querySelector(`.${color}`).style.color = "#003300";
-document.querySelector(`.${color}`).style.fontWeight = "bold";
+    document.querySelector(`.${color}`).style.backgroundColor = `${color}`
+    document.querySelector(`.${color}`).style.color = "#003300";
+    document.querySelector(`.${color}`).style.fontWeight = "bold";
 }
 
 function turnOffColor(color){
@@ -73,7 +78,7 @@ function selectDice(num){
     pickNumber = num;
     selectedNumber = num;
     showDiceInfo();
-document.querySelector(".selectedDice").innerHTML = `You selected Dice ${num}`;
+    document.querySelector(".selectedDice").innerHTML = `You selected Dice ${num}`;
 }
 
 function rollDice(){
@@ -88,6 +93,7 @@ function rollDice(){
             document.getElementById("diceFaceNum").innerHTML = "You got " + diceResult;
             document.querySelector(".selectedDice").innerHTML = "Good roll! Select again 👇🏼";
             d6Count++;
+            //For dice6, the result and average appears on a table for the first 6 rolls.
             if (d6Count <= 6){
                 showD6Table();
                 document.querySelector(`.grid${d6Count}`).innerHTML = diceResult;
