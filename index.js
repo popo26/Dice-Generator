@@ -18,9 +18,10 @@ let selectedNumber = 0;
 let diceResult = 0;
 let diceChosen = {};
 let d6Count = 0;
-let totalGameCount = 0;
+let d6Array = [];
 let d6Average = 0;
 let d6Sum = 0;
+let totalGameCount = 0;
 
 function showDiceInfo(){
     switch (pickNumber){
@@ -93,28 +94,36 @@ function rollDice(){
             document.getElementById("diceFaceNum").innerHTML = "You got " + diceResult;
             document.querySelector(".selectedDice").innerHTML = "Good roll! Select again 👇🏼";
             d6Count++;
+            d6Array.push(diceResult);
+            console.log(d6Array);
+            
             //For dice6, the result and average appears on a table for the first 6 rolls.
-            if (d6Count <= 6){
-                showD6Table();
-                document.querySelector(`.grid${d6Count}`).innerHTML = diceResult;
-                d6Sum = d6Sum + diceResult;
-                d6Average = (d6Sum / d6Count).toFixed(1);
-                document.querySelector(`.ave${d6Count}`).innerHTML = d6Average;
-                totalGameCount++;
-                updateTotalGameCount();
-            } else{
-                hideD6Table();
-                totalGameCount++;
-                updateTotalGameCount();
-            }
+            // if (d6Count <= 6){
+            //     showD6Table();
+            //     document.querySelector(`.grid${d6Count}`).innerHTML = diceResult;
+            //     d6Sum = d6Sum + diceResult;
+            //     d6Average = (d6Sum / d6Count).toFixed(1);
+            //     document.querySelector(`.ave${d6Count}`).innerHTML = d6Average;
+            //     totalGameCount++;
+            //     updateTotalGameCount();
+            // } else{
+            //     hideD6Table();
+            //     totalGameCount++;
+            //     updateTotalGameCount();
+            // }
+
+            showD6Table();
+            getAverage();
         } else{
             diceResult = Math.floor(Math.random() * selectedNumber) + 1;
             document.getElementById("diceFaceNum").innerHTML = "You got " + diceResult;
             document.querySelector(".selectedDice").innerHTML = "Woohoo! Select again 👇🏼";
-            totalGameCount++;
-            updateTotalGameCount();
+            // totalGameCount++;
+            // updateTotalGameCount();
         }
         selectedNumber = 0;
+        totalGameCount++;
+        updateTotalGameCount();
     }
 }
 
@@ -149,6 +158,76 @@ function revertFontColorSelectedDiceCss(){
     document.querySelector(".selectedDice").style.color = "#003300";
 }
 
+// let d6Count = 0;
+// let d6Array = [];
+// let d6Average = 0;
+// let d6Sum = 0;
+// let totalGameCount = 0;
+
+
+function getAverage(){
+    // if (d6Count <= 6){
+    //     showD6Table();
+    //     document.querySelector(`.grid${d6Count}`).innerHTML = diceResult;
+    //     d6Sum = d6Sum + diceResult;
+    //     d6Average = (d6Sum / d6Count).toFixed(1);
+    //     document.querySelector(`.ave${d6Count}`).innerHTML = d6Average;
+    //     totalGameCount++;
+    //     updateTotalGameCount();
+    // } else{
+    //     hideD6Table();
+    //     totalGameCount++;
+    //     updateTotalGameCount();
+    // }
+    let d6Side1 = 0;
+    let d6Side2 = 0;
+    let d6Side3 = 0;
+    let d6Side4 = 0;
+    let d6Side5 = 0;
+    let d6Side6 = 0;
+    
+    let d6Side1Ave = 0;
+    let d6Side2Ave = 0;
+    let d6Side3Ave = 0;
+    let d6Side4Ave = 0;
+    let d6Side5Ave = 0;
+    let d6Side6Ave = 0;
+
+    for (let i=0; i<d6Array.length; i++){
+        if (d6Array[i] === 1){
+            d6Side1++;
+            d6Side1Ave = Math.floor((d6Side1 / d6Count) * 100);
+            document.querySelector(".grid1").innerHTML = d6Side1;
+            document.querySelector(".ave1").innerHTML = `${d6Side1Ave} %`;
+        }else if (d6Array[i] === 2){
+            d6Side2++;
+            d6Side2Ave = Math.floor((d6Side2 / d6Count) * 100);
+            document.querySelector(".grid2").innerHTML = d6Side2;
+            document.querySelector(".ave2").innerHTML = `${d6Side2Ave} %`;
+        }else if (d6Array[i] === 3){
+            d6Side3++;
+            d6Side3Ave = Math.floor((d6Side3 / d6Count) * 100);
+            document.querySelector(".grid3").innerHTML = d6Side3;
+            document.querySelector(".ave3").innerHTML = `${d6Side3Ave} %`;
+        }else if (d6Array[i] === 4){
+            d6Side4++;
+            d6Side4Ave = Math.floor((d6Side4 / d6Count) * 100);
+            document.querySelector(".grid4").innerHTML = d6Side4;
+            document.querySelector(".ave4").innerHTML = `${d6Side4Ave} %`;
+        }else if (d6Array[i] === 5){
+            d6Side5++;
+            d6Side5Ave = Math.floor((d6Side5 / d6Count) * 100);
+            document.querySelector(".grid5").innerHTML = d6Side5;
+            document.querySelector(".ave5").innerHTML = `${d6Side5Ave} %`;
+        }else{
+            d6Side6++;
+            d6Side6Ave = Math.floor((d6Side6 / d6Count) * 100);
+            document.querySelector(".grid6").innerHTML = d6Side6;
+            document.querySelector(".ave6").innerHTML = `${d6Side6Ave} %`;
+        }
+    }
+    
+}
 
 
 
