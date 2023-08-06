@@ -95,31 +95,13 @@ function rollDice(){
             document.querySelector(".selectedDice").innerHTML = "Good roll! Select again 👇🏼";
             d6Count++;
             d6Array.push(diceResult);
-            console.log(d6Array);
-            
-            //For dice6, the result and average appears on a table for the first 6 rolls.
-            // if (d6Count <= 6){
-            //     showD6Table();
-            //     document.querySelector(`.grid${d6Count}`).innerHTML = diceResult;
-            //     d6Sum = d6Sum + diceResult;
-            //     d6Average = (d6Sum / d6Count).toFixed(1);
-            //     document.querySelector(`.ave${d6Count}`).innerHTML = d6Average;
-            //     totalGameCount++;
-            //     updateTotalGameCount();
-            // } else{
-            //     hideD6Table();
-            //     totalGameCount++;
-            //     updateTotalGameCount();
-            // }
-
             showD6Table();
             getAverage();
         } else{
+            hideD6Table();
             diceResult = Math.floor(Math.random() * selectedNumber) + 1;
             document.getElementById("diceFaceNum").innerHTML = "You got " + diceResult;
             document.querySelector(".selectedDice").innerHTML = "Woohoo! Select again 👇🏼";
-            // totalGameCount++;
-            // updateTotalGameCount();
         }
         selectedNumber = 0;
         totalGameCount++;
@@ -158,27 +140,8 @@ function revertFontColorSelectedDiceCss(){
     document.querySelector(".selectedDice").style.color = "#003300";
 }
 
-// let d6Count = 0;
-// let d6Array = [];
-// let d6Average = 0;
-// let d6Sum = 0;
-// let totalGameCount = 0;
-
-
+//Function to calculate average time when each number for dice 6 is rolled.e.g., if side 2 is rolled twice in total 2 rolls, 100%. If side 2 is rolled twice in total 4 rolls, 50%.
 function getAverage(){
-    // if (d6Count <= 6){
-    //     showD6Table();
-    //     document.querySelector(`.grid${d6Count}`).innerHTML = diceResult;
-    //     d6Sum = d6Sum + diceResult;
-    //     d6Average = (d6Sum / d6Count).toFixed(1);
-    //     document.querySelector(`.ave${d6Count}`).innerHTML = d6Average;
-    //     totalGameCount++;
-    //     updateTotalGameCount();
-    // } else{
-    //     hideD6Table();
-    //     totalGameCount++;
-    //     updateTotalGameCount();
-    // }
     let d6Side1 = 0;
     let d6Side2 = 0;
     let d6Side3 = 0;
@@ -225,8 +188,7 @@ function getAverage(){
             document.querySelector(".grid6").innerHTML = d6Side6;
             document.querySelector(".ave6").innerHTML = `${d6Side6Ave} %`;
         }
-    }
-    
+    } 
 }
 
 
